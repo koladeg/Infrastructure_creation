@@ -6,7 +6,7 @@ commands:
   destroy_environment:
     steps:
       - run: 
-         name: Create Cloudformation Stack
+         name: Destroy environment
          # ${CIRCLE_WORKFLOW_ID} is a Built-in environment variable 
          # ${CIRCLE_WORKFLOW_ID:0:5} takes the first 5 chars of the variable CIRCLE_CI_WORKFLOW_ID
          when: on_fail
@@ -28,7 +28,7 @@ jobs:
           command: |
              aws cloudformation deploy \
                --template-file template.yml \
-               --stack-name myStack-${CIRCLE_WORKFLOW_ID:0:5} \
+               --stack-name myStack-${CIRCLE_WORKFLOW_ID:0:7} \
                --region us-east-1
 
   configure_infrastructure:
