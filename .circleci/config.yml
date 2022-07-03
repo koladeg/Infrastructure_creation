@@ -51,11 +51,10 @@ jobs:
 
   smoke_test:
     docker:
-      - image: alpine:latest
+      - image: amazon/aws-cli
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
-      - run: apk add --update curl
       - run:
          name: Test job
          command: return 1
